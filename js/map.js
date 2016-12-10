@@ -1,13 +1,10 @@
-
-
-
 $(document).ready(function(){
-    
+
     /***********************************************************************/
     /********************** SNAZZY MAP - GOOGLE MAP ************************/
     /***********************************************************************/
-    
-     // When the window has finished loading create our google map below
+           
+           // When the window has finished loading create our google map below
             google.maps.event.addDomListener(window, 'load', init);
         
             function init() {
@@ -15,14 +12,14 @@ $(document).ready(function(){
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
                 var mapOptions = {
                     // How zoomed in you want the map to start at (always required)
-                    zoom: 8,
+                    zoom: 10,
 
                     // The latitude and longitude to center the map (always required)
-                    center: new google.maps.LatLng(51.5072982, -0.1450596,14), // London
+                    center: new google.maps.LatLng(51.5721269,-0.1987536,17), // London
 
                     // How you would like to style the map. 
                     // This is where you would paste any style found on Snazzy Maps.
-                    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#e74c3c"},{"visibility":"on"}]}]
+                    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#2ecc71"},{"visibility":"on"}]}]
                 };
 
                 // Get the HTML DOM element that will contain your map 
@@ -34,17 +31,10 @@ $(document).ready(function(){
 
                 // Let's also add a marker while we're at it
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(51.5072982, -0.1450596,14),
+                    position: new google.maps.LatLng(51.5721269,-0.1987536,17),
                     map: map,
-                    title: 'STEVE KUZANWA!'
+                    title: 'KEYSON DENTAL CLINIC!'
                 });
-            }
-    
-    
-    
-    
+            } 
+              
 });
-
-
-
-

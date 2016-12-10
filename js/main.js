@@ -1,8 +1,5 @@
-
-
-
 $(document).ready(function(){
-    
+
     /*****************************************************************/
     /***************************** WOW *******************************/
     /*****************************************************************/
@@ -12,16 +9,16 @@ $(document).ready(function(){
     /*****************************************************************/
     /*********************** STICKY NAV MENU *************************/
     /*****************************************************************/
-       
-         $(".js-navigation").sticky(
+    
+         $(".navigation").sticky(
               {topSpacing:0,
               zIndex:999
          });
     
+    
     /*****************************************************************/
     /*********************** MOBILE NAV MENU *************************/
     /*****************************************************************/
-
     
         $(".js-nav-icon").click(function(){
            $(this).toggleClass("change");
@@ -35,44 +32,22 @@ $(document).ready(function(){
                 }
         });
     
-    /************************************************************************/
-    /**************************** SMOOTH SCROLL *****************************/
-    /************************************************************************/
- 
-         $('a').smoothScroll({
-             offset: -20,
-             excludeWithin: ['.js_services'],
-             speed: 1000
-         });
-        
- 
+        var $sidebarArrow = $(".js-sidebar-menu-arrow");
+           // Sidebar navigation arrows
+        $sidebarArrow.click(function() {
+            $(this).next().slideToggle(300);
+        });
+
+    /****************************************************************/
+    /************* HIGHLIGHT CURRENT PAGE IN NAVIGATION *************/
+    /****************************************************************/
     
-    /*****************************************************************/
-    /************* ACTIVE NAV MENU ON SCROLL AND ON CLICK ************/
-    /*****************************************************************/
-  
-         var sections = $('section'),
-                nav = $('nav'),
-                nav_height = nav.outerHeight();
+      $('a').each(function() {
+            if ($(this).prop('href') == window.location.href) {
+              $(this).addClass('active');
+            }
+      });
 
-          $(window).on('scroll', function () {
-              var cur_pos = $(this).scrollTop();
-
-              sections.each(function() {
-                var top = $(this).offset().top - nav_height,
-                    bottom = top + $(this).outerHeight();
-
-                if (cur_pos >= top && cur_pos <= bottom) {
-                  nav.find('a').removeClass('active');
-                  sections.removeClass('active');
-
-                  $(this).addClass('active');
-                  nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('active');
-                }
-              });
-          });
-    
-    
     
     /*************************************************************************/
     /**************************** SCROLL TO TOP ******************************/
@@ -93,8 +68,6 @@ $(document).ready(function(){
             });
 
     
-    
-    
     /*************************************************************************/
     /**************************** SLICK CAROUSEL *****************************/
     /*************************************************************************/
@@ -102,7 +75,6 @@ $(document).ready(function(){
          /** BackGround Slides **/
     
          $('.slides').slick({
-             fade: true,
              slidesToShow: 1,
              autoplay:true,
              pauseOnHover:true,
@@ -115,24 +87,49 @@ $(document).ready(function(){
     
     
          /** Testimonials Slides **/
-    
-         $('.buildingSleekWebsitesSlides').slick({
+
+         $('.testimonialsSlides').slick({
              slidesToShow: 1,
              autoplay:true,
              pauseOnHover:true,
              autoplaySpeed: 5000,
              speed: 1000,
-             arrows: false,
              dots: true
       
          });
     
-    
-    /***************************************************************************/
-    /******************************* OPEN POPUP ********************************/
-    /***************************************************************************/
+        $('.otherServicesSlides').slick({
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              autoplay:true,
+              dots: true,
+              arrows: false,
+              autoplaySpeed: 3000,
+              speed: 1000,
+              responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 510,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+              ]
+            });
 
-    
+
     /***************************************************************************/
     /******************************* OPEN POPUP ********************************/
     /***************************************************************************/
@@ -140,62 +137,19 @@ $(document).ready(function(){
                // Bind as an event handler
                $(document).on('click', '[data-lightbox]', lity);
    
-    /*****************************************************************/
-    /***************************** WOW *******************************/
-    /*****************************************************************/
-    
-    
-    /*
-    
-    
-        $('.open-popup-link').magnificPopup({
-            type:'inline',
-            midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.  
-            callbacks: {
-                beforeOpen: function() {
-                   this.st.mainClass = this.st.el.attr('data-effect');
-                }
-            }
-            
-        });
-    
-    
-        /** Showcase Gallery **
-    
-        $('.showcaseGallery').magnificPopup({
-          delegate: 'a', // child items selector, by clicking on it popup will open
-          type: 'image',
-          // other options
-          gallery:{
-            enabled:true
-          },
-          zoom: {
-            enabled: true, // By default it's false, so don't forget to enable it
-            duration: 500, // duration of the effect, in milliseconds
-            easing: 'ease-in-out' // CSS transition easing function
-          }
 
-            
-        });
-    
-    */
     
     
     
-    /*******************************************************************/
-    /***************************** Typed *******************************/
-    /*******************************************************************/
+
     
-    $(function(){
-        $("#typed").typed({
-            stringsElement: $('#typed-strings'),
-            loop: true,
-            backDelay: 3000
-        });
-    });
+  
+
     
+
+    
+    
+    
+              
 });
-
-
-
 
